@@ -3,6 +3,8 @@ n = int(input("Введите количество измерений: "))
 
 error_count = 0
 prev_count = 0
+sum_temp = 0
+temp_count = 0
 max_temp = None
 
 for i in range(n):
@@ -12,6 +14,9 @@ for i in range(n):
         error_count += 1
     else:
         temp = float(x)
+
+        sum_temp += temp
+        temp_count += 1
 
         if temp > porog:
             prev_count += 1
@@ -23,3 +28,4 @@ print(f"Количество измерений: {n}")
 print(f"Количество ошибок: {error_count}")
 print(f"Количество значений выше порога: {prev_count}")
 print(f"Максимальная температура: {max_temp:.1f}")
+print(f"Средняя температура: {sum_temp / temp_count:.1f}")
