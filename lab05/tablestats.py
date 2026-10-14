@@ -25,6 +25,13 @@ def count_types(rows: list[dict]) -> dict:
     return counts
 
 def total_minutes(rows: list[dict], kind: str) -> float:
-    raise NotImplementedError
+    total = 0.0
+    for row in rows:
+        if row["тип"] != kind: continue
+        text = row["минуты"].strip().replace(",", ".")
+        try: total = total + float(text)
+        except ValueError: continue
+    return round(total, 1)
+
 def to_csv(counts: dict) -> str:
     raise NotImplementedError
