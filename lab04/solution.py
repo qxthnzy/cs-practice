@@ -30,4 +30,4 @@ def above_average(names: list[str], scores: list[float]) -> list[str]:
     for i in range(len(scores)):
         if scores[i] > avg:
             answer.append(names[i])
-    return answer
+    return answer 
