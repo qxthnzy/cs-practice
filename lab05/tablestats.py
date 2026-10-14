@@ -34,4 +34,7 @@ def total_minutes(rows: list[dict], kind: str) -> float:
     return round(total, 1)
 
 def to_csv(counts: dict) -> str:
-    raise NotImplementedError
+    text = "тип,количество\n"
+    for kind in sorted(counts):
+        text = text + kind + "," + str(counts[kind]) + "\n"
+    return text
