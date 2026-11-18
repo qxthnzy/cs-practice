@@ -76,3 +76,48 @@ print("Форма:", fragment.shape)
 
 print("Правый нижний угол:\n", corner)
 print("Форма:", corner.shape)
+
+# Задание 5. Изменение массива с помощью срезов
+
+vector = np.array([10, 20, 30, 40, 50])
+vector[1:4] = 0
+
+small_matrix = np.arange(1, 10).reshape(3, 3)
+small_matrix[0, :] = -1
+small_matrix[1:, 1:] = 9
+
+print("Изменённый вектор:", vector)
+print("Изменённая маленькая матрица:\n", small_matrix)
+
+changed_hours = hours.copy()
+changed_hours[2:5] = 99
+changed_hours[::2] = -1
+
+print("Исходный массив:", hours)
+print("Изменённый массив:", changed_hours)
+
+# copy() создаёт независимую копию,
+# поэтому исходный массив hours не изменяется.
+
+changed_matrix = matrix.copy()
+changed_matrix[1, :] = 0
+changed_matrix[:, -1] = -1
+changed_matrix[1:4, 1:4] = 100
+
+print("Исходная матрица:\n", matrix)
+print("Изменённая матрица:\n", changed_matrix)
+
+
+# Задание 6. Изменение формы
+
+numbers = np.arange(12)
+table = numbers.reshape(3, 4)
+transposed = table.T
+
+print("Форма numbers:", numbers.shape)
+print("Форма table:", table.shape)
+print("Форма transposed:", transposed.shape)
+
+# reshape(3, 4) работает, потому что 3 * 4 = 12.
+# reshape(5, 3) вызовет ошибку, так как 5 * 3 = 15,
+# а массив numbers содержит только 12 элементов.
