@@ -8,3 +8,17 @@ def reshape_rows(
 
     matrix = np.asarray(values, dtype=float)
     return matrix.reshape(-1, width).tolist()
+
+def block(
+    matrix: list[list[float]],
+    rows: list[int],
+    columns: list[int]
+) -> list[list[float]]:
+    if not matrix or not rows:
+        return []
+
+    if not columns:
+        return [[] for _ in rows]
+
+    array = np.asarray(matrix, dtype=float)
+    return array[np.ix_(rows, columns)].tolist()
